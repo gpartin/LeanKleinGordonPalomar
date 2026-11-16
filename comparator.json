@@ -1,0 +1,22 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "LeanKleinGordonPalomar.c19IsotropicMoment",
+    "LeanKleinGordonPalomar.c19SpeedSquared",
+    "LeanKleinGordonPalomar.c19SpatialQuarticError"
+  ],
+  "definition_names": [
+    "LeanKleinGordonPalomar.Bond",
+    "LeanKleinGordonPalomar.positiveBonds",
+    "LeanKleinGordonPalomar.dotSite",
+    "LeanKleinGordonPalomar.scaleWave",
+    "LeanKleinGordonPalomar.waveNormSq",
+    "LeanKleinGordonPalomar.speedSq",
+    "LeanKleinGordonPalomar.spaceSymbol",
+    "LeanKleinGordonPalomar.spatialErrorWeight"
+  ],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "enable_nanoda": true
+}
+

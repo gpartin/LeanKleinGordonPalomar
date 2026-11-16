@@ -1,0 +1,110 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "C19 isotropic quadratic symbol and quartic long-wave error"
+  description: >-
+    A Lean formalization of the positive-half C19 cubic stencil, proving that
+    its quadratic moment is exactly isotropic with coefficient 12 and that its
+    finite-spacing cosine symbol differs from the quadratic approximation by
+    an explicit quartic bound.
+  authors:
+    - "G. D. Partin"
+  license: "CC0-1.0"
+  responsible_maintainers:
+    - "G. D. Partin"
+
+classification:
+  arxiv: ["math-ph", "cs.LO"]
+  msc2020: ["03B35", "35L05", "65M06"]
+
+sources:
+  - title: "Lean Klein-Gordon Derivation"
+    type: original-proof
+    relationship: other
+    id: "https://github.com/gpartin/LeanKleinGordonDerivation/releases/tag/v0.7.0-research"
+    location: "https://github.com/gpartin/LeanKleinGordonDerivation"
+    license: "CC0-1.0"
+    author_endorsement: "participated"
+  - title: "Archived Lean Klein-Gordon software release"
+    type: software
+    relationship: other
+    id: "https://zenodo.org/records/24287570"
+    location: "https://zenodo.org/records/24287570"
+    license: "CC0-1.0"
+    author_endorsement: "participated"
+
+related_formalizations: []
+
+status:
+  scope: >-
+    The selected declarations prove the exact isotropic quadratic moment and
+    an explicit quartic long-wave error bound for the stated C19 cosine
+    symbol. They do not prove arbitrary nonlinear trajectory convergence, a
+    native massless carrier, a physical particle, or that LFM models nature.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Quot.sound", "Classical.choice"]
+  main_results:
+    - "LeanKleinGordonPalomar.c19IsotropicMoment"
+    - "LeanKleinGordonPalomar.c19SpeedSquared"
+    - "LeanKleinGordonPalomar.c19SpatialQuarticError"
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["OpenAI Codex"]
+      framework: "Codex desktop"
+      tool_setup: "Human-directed AI-assisted Lean implementation, compilation, adversarial review, and submission preparation"
+      cost:
+        wall_time: "multi-session research program"
+        spend_usd: "subscription-based; not tracked"
+        hardware: "local Windows workstation and GitHub Actions"
+      prompting_notes: >-
+        The human directed the research goal, claim boundaries, release scope,
+        and repeated red-team requirements. The agent implemented and checked
+        the Lean development and prepared this disclosure.
+  spend_usd: "subscription-based; not tracked"
+  notes: >-
+    Challenge.lean contains the auditable statement surface; Solution.lean
+    independently proves it. The package is intended for the pinned Palomar
+    Comparator, NanoDa, and full-preflight workflow before intake.
+
+fidelity:
+  divergences: >-
+    This wrapper deliberately selects only the C19 isotropy and finite-spacing
+    error results from the larger seven-stage Klein-Gordon release. It omits
+    the normalized continuum-frequency readout to keep the registry statement
+    independent of that interpretation.
+
+review:
+  status: "self-assessed and agent-reviewed"
+  reviewers:
+    - "G. D. Partin"
+    - "OpenAI Codex"
+  notes: >-
+    The statements are checked against the production source and will be
+    subjected to clean build, Comparator, NanoDa, and the full Palomar
+    preflight before intake.
+
+alignment:
+  namespace: "LeanKleinGordonPalomar"
+  statements:
+    - source: "KLEINGORDON-004 C19 isotropic moment"
+      lean: "LeanKleinGordonPalomar.c19IsotropicMoment"
+      module: "Solution"
+      status: "proved"
+      note: "Matches the production identity after namespace renaming only."
+    - source: "KLEINGORDON-004 C19 speed coefficient"
+      lean: "LeanKleinGordonPalomar.c19SpeedSquared"
+      module: "Solution"
+      status: "proved"
+      note: "Matches the production coefficient evaluation after namespace renaming only."
+    - source: "KLEINGORDON-004 spatial error bound"
+      lean: "LeanKleinGordonPalomar.c19SpatialQuarticError"
+      module: "Solution"
+      status: "proved"
+      note: "Matches the production finite-spacing inequality after namespace renaming only."
+
+acknowledgements: "Lean, Mathlib, Palomar Registry, OpenAI Codex, and public reviewers of the repository."
+
